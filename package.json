@@ -1,0 +1,76 @@
+{
+	"name": "@anvilkit/plugin-design-system",
+	"version": "0.1.0",
+	"description": "Design-system plugin for Anvilkit Studio — token-bound fields, theme switching, and design validation through the `<Studio>` plugin contract.",
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		},
+		"./tokens": {
+			"import": {
+				"types": "./dist/tokens/index.d.ts",
+				"default": "./dist/tokens/index.js"
+			},
+			"require": {
+				"types": "./dist/tokens/index.d.cts",
+				"default": "./dist/tokens/index.cjs"
+			}
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"@puckeditor/core": "^0.21.2",
+		"react": "^18.2.0 || ^19.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@puckeditor/core": {
+			"optional": false
+		},
+		"react": {
+			"optional": false
+		}
+	},
+	"dependencies": {
+		"@anvilkit/core": "workspace:*"
+	},
+	"devDependencies": {
+		"@anvilkit/biome-config": "workspace:*",
+		"@anvilkit/typescript-config": "workspace:*",
+		"@anvilkit/vitest-config": "workspace:*",
+		"@biomejs/biome": "2.4.9",
+		"@puckeditor/core": "^0.21.2",
+		"@rsbuild/plugin-react": "^1.0.7",
+		"@rslib/core": "^0.20.1",
+		"@types/react": "^19.2.6",
+		"react": "^19.2.6",
+		"typescript": "^6.0.2",
+		"vitest": "^4.1.7"
+	},
+	"scripts": {
+		"build": "rslib build",
+		"dev": "rslib build --watch",
+		"lint": "pnpm exec biome lint package.json tsconfig.json rslib.config.ts vitest.config.ts src",
+		"format": "pnpm exec biome check --write package.json tsconfig.json rslib.config.ts vitest.config.ts src",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	}
+}
