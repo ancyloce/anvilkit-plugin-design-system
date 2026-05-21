@@ -78,7 +78,7 @@ export function App() {
   in the resolved token tree. Logged via `ctx.log("warn", …)`.
 - **Contrast gating (`onBeforePublish`).** WCAG-AA pair walker (default
   `{ fg: "color", bg: "backgroundColor" }` and `{ fg: "color", bg:
-  "background" }`) throws `StudioPluginError` with all failures attached
+"background" }`) throws `StudioPluginError` with all failures attached
   to `error.cause.failures` to abort publish.
 
 ## Options
@@ -100,13 +100,13 @@ interface DesignSystemOptions {
 
 CSS variables emitted into the host doc and the Puck iframe:
 
-| Tier      | Variables                                                               |
-| --------- | ----------------------------------------------------------------------- |
-| Primitive | `--ak-ds-brand-{50..900}`, `--ak-ds-neutral-{50..900}`                  |
-|           | `--ak-ds-space-{0,1,2,3,4,6,8,12,16,24}`                                |
-|           | `--ak-ds-text-{xs,sm,base,lg,xl,2xl,3xl}`                               |
-|           | `--ak-ds-radius-{sm,md,lg}`                                             |
-| Semantic  | `--ak-ds-{bg,surface,fg,fg-muted,accent,accent-fg,border,focus-ring}`   |
+| Tier      | Variables                                                             |
+| --------- | --------------------------------------------------------------------- |
+| Primitive | `--ak-ds-brand-{50..900}`, `--ak-ds-neutral-{50..900}`                |
+|           | `--ak-ds-space-{0,1,2,3,4,6,8,12,16,24}`                              |
+|           | `--ak-ds-text-{xs,sm,base,lg,xl,2xl,3xl}`                             |
+|           | `--ak-ds-radius-{sm,md,lg}`                                           |
+| Semantic  | `--ak-ds-{bg,surface,fg,fg-muted,accent,accent-fg,border,focus-ring}` |
 
 Semantics fall back to `var(--ak-studio-*, …)` so an unthemed host
 renders identically to today.
@@ -125,8 +125,8 @@ renders identically to today.
 
 ## Subpath exports
 
-| Subpath                                  | Exports                                        |
-| ---------------------------------------- | ---------------------------------------------- |
+| Subpath                                  | Exports                                          |
+| ---------------------------------------- | ------------------------------------------------ |
 | `@anvilkit/plugin-design-system`         | Factory, field factories, runtime, tokens, panel |
 | `@anvilkit/plugin-design-system/tokens`  | React-free token tree + helpers                  |
 | `@anvilkit/plugin-design-system/runtime` | `TokenProvider`, `useTokens`, `resolveTokenRef`  |

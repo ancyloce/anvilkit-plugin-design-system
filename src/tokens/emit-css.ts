@@ -28,8 +28,8 @@ import {
 	rampVar,
 	SEMANTIC_VAR,
 	SPACE_KEYS,
-	spaceVar,
 	STUDIO_FALLBACK,
+	spaceVar,
 	TEXT_KEYS,
 	textVar,
 } from "./css-vars.js";

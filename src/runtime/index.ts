@@ -8,23 +8,23 @@
  */
 
 export {
+	listTokenRefs,
+	type ResolvedTokenRef,
+	resolveTokenRef,
+	type TokenRefKind,
+} from "./resolve-ref.js";
+export {
 	COLOR_CATEGORIES,
 	SPACING_CATEGORIES,
 	TOKEN_CATEGORIES,
-	TYPOGRAPHY_CATEGORIES,
 	type TokenCategory,
+	TYPOGRAPHY_CATEGORIES,
 } from "./token-categories.js";
 export {
-	TokenProvider,
 	type TokenContextValue,
+	TokenProvider,
 	type TokenProviderProps,
 	useTokenContext,
 	useTokens,
 	useTokenValidationOptions,
 } from "./token-context.js";
-export {
-	listTokenRefs,
-	resolveTokenRef,
-	type ResolvedTokenRef,
-	type TokenRefKind,
-} from "./resolve-ref.js";

@@ -19,4 +19,4 @@ export {
 	type OffTokenCategory,
 	type OffTokenWarning,
 } from "./off-token.js";
-export { walkPuckData, type WalkedValue } from "./walk-puck-data.js";
+export { type WalkedValue, walkPuckData } from "./walk-puck-data.js";

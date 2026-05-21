@@ -8,5 +8,5 @@
  */
 
 export { DesignSystemPanel } from "./DesignSystemPanel.js";
-export { TokensTab } from "./TokensTab.js";
 export { ThemeTab } from "./ThemeTab.js";
+export { TokensTab } from "./TokensTab.js";

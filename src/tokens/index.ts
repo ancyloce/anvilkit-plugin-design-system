@@ -7,7 +7,7 @@
  */
 
 export { DEFAULT_TOKENS } from "./default-tokens.js";
-export { emitTokensCss, type EmitTokensCssOptions } from "./emit-css.js";
+export { type EmitTokensCssOptions, emitTokensCss } from "./emit-css.js";
 export { mergeTokens } from "./merge-tokens.js";
 export type {
 	ColorRamp,

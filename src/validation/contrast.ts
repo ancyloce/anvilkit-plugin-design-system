@@ -21,8 +21,8 @@
  *     hex values; broader parsing lands in a follow-up.
  */
 
-import type { DesignTokens } from "../tokens/types.js";
 import { resolveTokenRef } from "../runtime/resolve-ref.js";
+import type { DesignTokens } from "../tokens/types.js";
 
 export interface ContrastPair {
 	readonly fg: string;

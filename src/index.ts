@@ -13,18 +13,18 @@
  */
 
 export {
+	type CreateTokenColorFieldOptions,
+	type CreateTokenSpacingFieldOptions,
+	type CreateTokenTypographyFieldOptions,
+	createTokenColorField,
+	createTokenSpacingField,
+	createTokenTypographyField,
+} from "./fields/index";
+export {
 	createDesignSystemPlugin,
 	type DesignSystemOptions,
 	type DesignSystemValidationOptions,
 } from "./plugin";
-export {
-	createTokenColorField,
-	type CreateTokenColorFieldOptions,
-	createTokenSpacingField,
-	type CreateTokenSpacingFieldOptions,
-	createTokenTypographyField,
-	type CreateTokenTypographyFieldOptions,
-} from "./fields/index";
 export {
 	listTokenRefs,
 	type ResolvedTokenRef,
@@ -43,8 +43,8 @@ export {
 	type DarkPrimitiveOverrides,
 	DEFAULT_TOKENS,
 	type DesignTokens,
-	emitTokensCss,
 	type EmitTokensCssOptions,
+	emitTokensCss,
 	mergeTokens,
 	type PartialDesignTokens,
 	type PrimitiveTokens,
