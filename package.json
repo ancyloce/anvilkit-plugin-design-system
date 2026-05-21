@@ -1,6 +1,6 @@
 {
 	"name": "@anvilkit/plugin-design-system",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Design-system plugin for Anvilkit Studio — token-bound fields, theme switching, and design validation through the `<Studio>` plugin contract.",
 	"type": "module",
 	"main": "./dist/index.cjs",
