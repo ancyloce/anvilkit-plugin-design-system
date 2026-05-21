@@ -1,0 +1,14 @@
+[
+	{
+		"name": "@anvilkit/plugin-design-system",
+		"path": "dist/index.js",
+		"limit": "20 KB",
+		"gzip": true,
+		"ignore": [
+			"react",
+			"react-dom",
+			"@puckeditor/core",
+			"@anvilkit/core"
+		]
+	}
+]
