@@ -26,6 +26,16 @@
 				"types": "./dist/tokens/index.d.cts",
 				"default": "./dist/tokens/index.cjs"
 			}
+		},
+		"./runtime": {
+			"import": {
+				"types": "./dist/runtime/index.d.ts",
+				"default": "./dist/runtime/index.js"
+			},
+			"require": {
+				"types": "./dist/runtime/index.d.cts",
+				"default": "./dist/runtime/index.cjs"
+			}
 		}
 	},
 	"files": [
@@ -59,8 +69,12 @@
 		"@puckeditor/core": "^0.21.2",
 		"@rsbuild/plugin-react": "^1.0.7",
 		"@rslib/core": "^0.20.1",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
 		"@types/react": "^19.2.6",
+		"jsdom": "^29.0.2",
 		"react": "^19.2.6",
+		"react-dom": "^19.2.6",
 		"typescript": "^6.0.2",
 		"vitest": "^4.1.7"
 	},
