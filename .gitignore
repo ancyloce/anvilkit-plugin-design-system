@@ -15,6 +15,7 @@
 # production
 /build
 /dist
+/.bundle-check
 
 # misc
 .DS_Store
