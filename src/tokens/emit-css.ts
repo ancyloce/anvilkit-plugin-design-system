@@ -21,6 +21,18 @@
  * stay theme-stable.
  */
 
+import {
+	RADIUS_KEYS,
+	RAMP_KEYS,
+	radiusVar,
+	rampVar,
+	SEMANTIC_VAR,
+	SPACE_KEYS,
+	spaceVar,
+	STUDIO_FALLBACK,
+	TEXT_KEYS,
+	textVar,
+} from "./css-vars.js";
 import type {
 	ColorRamp,
 	DesignTokens,
@@ -36,84 +48,6 @@ export interface EmitTokensCssOptions {
 	readonly darkSelector?: string;
 	/** Indent prefix per declaration (default `"\t"`). */
 	readonly indent?: string;
-}
-
-const STUDIO_FALLBACK: Record<keyof DesignTokens["semantics"], string> = {
-	bg: "--ak-studio-bg",
-	surface: "--ak-studio-panel",
-	fg: "--ak-studio-fg",
-	fgMuted: "--ak-studio-muted-fg",
-	accent: "--ak-studio-accent",
-	accentFg: "--ak-studio-accent-fg",
-	border: "--ak-studio-border",
-	focusRing: "--ak-studio-ring",
-};
-
-const SEMANTIC_VAR: Record<keyof DesignTokens["semantics"], string> = {
-	bg: "--ak-ds-bg",
-	surface: "--ak-ds-surface",
-	fg: "--ak-ds-fg",
-	fgMuted: "--ak-ds-fg-muted",
-	accent: "--ak-ds-accent",
-	accentFg: "--ak-ds-accent-fg",
-	border: "--ak-ds-border",
-	focusRing: "--ak-ds-focus-ring",
-};
-
-const RAMP_KEYS = [
-	"50",
-	"100",
-	"200",
-	"300",
-	"400",
-	"500",
-	"600",
-	"700",
-	"800",
-	"900",
-] as const satisfies ReadonlyArray<`${keyof ColorRamp}`>;
-
-const SPACE_KEYS = [
-	"0",
-	"1",
-	"2",
-	"3",
-	"4",
-	"6",
-	"8",
-	"12",
-	"16",
-	"24",
-] as const satisfies ReadonlyArray<`${keyof SpacingScale}`>;
-
-const TEXT_KEYS = [
-	"xs",
-	"sm",
-	"base",
-	"lg",
-	"xl",
-	"2xl",
-	"3xl",
-] as const satisfies ReadonlyArray<keyof TypographyScale>;
-
-const RADIUS_KEYS = ["sm", "md", "lg"] as const satisfies ReadonlyArray<
-	keyof RadiusScale
->;
-
-function rampVar(group: "brand" | "neutral", key: string): string {
-	return `--ak-ds-${group}-${key}`;
-}
-
-function spaceVar(key: string): string {
-	return `--ak-ds-space-${key}`;
-}
-
-function textVar(key: string): string {
-	return `--ak-ds-text-${key}`;
-}
-
-function radiusVar(key: string): string {
-	return `--ak-ds-radius-${key}`;
 }
 
 function emitRamp(
