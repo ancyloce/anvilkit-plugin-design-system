@@ -34,6 +34,7 @@ import type {
 	StudioPluginLifecycleHooks,
 } from "@anvilkit/core/types";
 
+import config from "../meta/config.json";
 import packageJson from "../package.json";
 import type {
 	DesignSystemOptions,
@@ -56,12 +57,8 @@ export type {
 } from "./options.js";
 
 const META = {
-	id: "anvilkit-plugin-design-system",
-	name: "Design System",
+	...config,
 	version: packageJson.version,
-	coreVersion: "^0.1.0-alpha",
-	description:
-		"Token-bound fields, theme switching, and design validation through the `<Studio>` plugin contract.",
 } as const;
 
 const DEFAULT_VALIDATION: Required<DesignSystemValidationOptions> = {
