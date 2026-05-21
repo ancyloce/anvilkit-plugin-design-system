@@ -3,6 +3,10 @@
 Token-bound fields, theme switching, and design validation for
 `@anvilkit/core`'s `<Studio>` shell.
 
+> 📘 **Full guide:** see [Design System plugin](https://anvilkit-studio.vercel.app/guides/design-system/)
+> on the docs site for the long-form walkthrough — token model,
+> validation hooks, theme switching, current limits.
+
 ## Install
 
 ```sh
@@ -140,3 +144,11 @@ renders identically to today.
 - The DS panel ships Tokens + Theme tabs in v0.1. A Components tab is
   deferred until a concrete spec lands for which metadata each row
   shows.
+- **Rail tab pending in core.** The plugin registers a panel via
+  `ctx.registerDesignSystemPanel?({ render })` and the core
+  `sidebarRegistryStore.designSystemPanel` slot is populated, but the
+  `EditorTab` union + `RAIL_MODULES` table in `@anvilkit/core` don't
+  yet include a `"design-system"` entry — so the panel state is set
+  but no UI consumes it. The token-bound fields, `--ak-ds-*` CSS, and
+  validators all work today; the panel UI lands with a follow-up Phase
+  B back-fill in core.

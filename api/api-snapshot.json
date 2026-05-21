@@ -2758,7 +2758,7 @@
 		},
 		{
 			"kind": "text",
-			"text": " shell.\n\n## Install\n\n"
+			"text": " shell.\n\n> 📘 **Full guide:** see [Design System plugin](https://anvilkit-studio.vercel.app/guides/design-system/)\n> on the docs site for the long-form walkthrough — token model,\n> validation hooks, theme switching, current limits.\n\n## Install\n\n"
 		},
 		{
 			"kind": "code",
@@ -3238,7 +3238,63 @@
 		},
 		{
 			"kind": "text",
-			"text": " if noise is a problem.\n- The DS panel ships Tokens + Theme tabs in v0.1. A Components tab is\n  deferred until a concrete spec lands for which metadata each row\n  shows."
+			"text": " if noise is a problem.\n- The DS panel ships Tokens + Theme tabs in v0.1. A Components tab is\n  deferred until a concrete spec lands for which metadata each row\n  shows.\n- **Rail tab pending in core.** The plugin registers a panel via\n  "
+		},
+		{
+			"kind": "code",
+			"text": "`ctx.registerDesignSystemPanel?({ render })`"
+		},
+		{
+			"kind": "text",
+			"text": " and the core\n  "
+		},
+		{
+			"kind": "code",
+			"text": "`sidebarRegistryStore.designSystemPanel`"
+		},
+		{
+			"kind": "text",
+			"text": " slot is populated, but the\n  "
+		},
+		{
+			"kind": "code",
+			"text": "`EditorTab`"
+		},
+		{
+			"kind": "text",
+			"text": " union + "
+		},
+		{
+			"kind": "code",
+			"text": "`RAIL_MODULES`"
+		},
+		{
+			"kind": "text",
+			"text": " table in "
+		},
+		{
+			"kind": "code",
+			"text": "`@anvilkit/core`"
+		},
+		{
+			"kind": "text",
+			"text": " don't\n  yet include a "
+		},
+		{
+			"kind": "code",
+			"text": "`\"design-system\"`"
+		},
+		{
+			"kind": "text",
+			"text": " entry — so the panel state is set\n  but no UI consumes it. The token-bound fields, "
+		},
+		{
+			"kind": "code",
+			"text": "`--ak-ds-*`"
+		},
+		{
+			"kind": "text",
+			"text": " CSS, and\n  validators all work today; the panel UI lands with a follow-up Phase\n  B back-fill in core."
 		}
 	],
 	"symbolIdMap": {
