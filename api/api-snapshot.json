@@ -209,202 +209,8 @@
 			]
 		},
 		{
-			"id": 13,
+			"id": 1,
 			"name": "CreateTokenColorFieldOptions",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"children": [
-				{
-					"id": 15,
-					"name": "defaultRef",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "Default ref string applied when Puck instantiates the field with\nno value. Stored verbatim — no validation at factory time."
-							}
-						]
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				},
-				{
-					"id": 14,
-					"name": "label",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "Label shown above the field in the Puck sidebar."
-							}
-						]
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						15,
-						14
-					]
-				}
-			]
-		},
-		{
-			"id": 19,
-			"name": "CreateTokenSpacingFieldOptions",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"children": [
-				{
-					"id": 21,
-					"name": "defaultRef",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				},
-				{
-					"id": 20,
-					"name": "label",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						21,
-						20
-					]
-				}
-			]
-		},
-		{
-			"id": 25,
-			"name": "CreateTokenTypographyFieldOptions",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"children": [
-				{
-					"id": 27,
-					"name": "defaultRef",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				},
-				{
-					"id": 26,
-					"name": "label",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true,
-						"isReadonly": true
-					},
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						27,
-						26
-					]
-				}
-			]
-		},
-		{
-			"id": 67,
-			"name": "DarkPrimitiveOverrides",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"comment": {
-				"summary": [
-					{
-						"kind": "text",
-						"text": "Dark-mode primitive overrides. v1 only inverts the neutral ramp —\nbrand stays the same across themes (brand color is brand color) and\nspacing / type / radius are intrinsically theme-independent.\n\nSemantics resolve through primitives, so an unset semantic block in\ndark mode is intentional: roles re-bind automatically when neutrals\nflip, keeping stored token refs theme-stable (PRD 0005 §5.2)."
-					}
-				]
-			},
-			"children": [
-				{
-					"id": 68,
-					"name": "neutral",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isReadonly": true
-					},
-					"type": {
-						"type": "reference",
-						"target": 56,
-						"name": "ColorRamp",
-						"package": "@anvilkit/plugin-design-system"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						68
-					]
-				}
-			]
-		},
-		{
-			"id": 4,
-			"name": "DesignSystemOptions",
 			"variant": "declaration",
 			"kind": 256,
 			"flags": {},
@@ -472,8 +278,8 @@
 			},
 			"children": [
 				{
-					"id": 5,
-					"name": "tokens",
+					"id": 3,
+					"name": "defaultRef",
 					"variant": "declaration",
 					"kind": 1024,
 					"flags": {
@@ -484,28 +290,18 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Host overrides — deep-merged onto the bundled "
-							},
-							{
-								"kind": "code",
-								"text": "`DEFAULT_TOKENS`"
-							},
-							{
-								"kind": "text",
-								"text": "."
+								"text": "Default ref string applied when Puck instantiates the field with\nno value. Stored verbatim — no validation at factory time."
 							}
 						]
 					},
 					"type": {
-						"type": "reference",
-						"target": 86,
-						"name": "PartialDesignTokens",
-						"package": "@anvilkit/plugin-design-system"
+						"type": "intrinsic",
+						"name": "string"
 					}
 				},
 				{
-					"id": 6,
-					"name": "validation",
+					"id": 2,
+					"name": "label",
 					"variant": "declaration",
 					"kind": 1024,
 					"flags": {
@@ -516,15 +312,13 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Toggles for the lifecycle validators landed in Phase B."
+								"text": "Label shown above the field in the Puck sidebar."
 							}
 						]
 					},
 					"type": {
-						"type": "reference",
-						"target": 7,
-						"name": "DesignSystemValidationOptions",
-						"package": "@anvilkit/plugin-design-system"
+						"type": "intrinsic",
+						"name": "string"
 					}
 				}
 			],
@@ -532,15 +326,123 @@
 				{
 					"title": "Properties",
 					"children": [
-						5,
-						6
+						3,
+						2
+					]
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "CreateTokenSpacingFieldOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [],
+				"blockTags": [
+					{
+						"tag": "@file",
+						"content": [
+							{
+								"kind": "text",
+								"text": "Public surface for "
+							},
+							{
+								"kind": "code",
+								"text": "`@anvilkit/plugin-design-system`"
+							},
+							{
+								"kind": "text",
+								"text": ".\n\nPhase A scaffold:\n - A4 (this revision): re-exports the React-free token surface\n   ("
+							},
+							{
+								"kind": "code",
+								"text": "`DEFAULT_TOKENS`"
+							},
+							{
+								"kind": "text",
+								"text": ", "
+							},
+							{
+								"kind": "code",
+								"text": "`mergeTokens`"
+							},
+							{
+								"kind": "text",
+								"text": ", type tree).\n - A5: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`emitTokensCss`"
+							},
+							{
+								"kind": "text",
+								"text": " helper.\n - A6: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`createDesignSystemPlugin()`"
+							},
+							{
+								"kind": "text",
+								"text": " factory.\n\nThe dedicated "
+							},
+							{
+								"kind": "code",
+								"text": "`./tokens`"
+							},
+							{
+								"kind": "text",
+								"text": " subpath stays the authoritative React-free\nimport — host build pipelines that want to avoid pulling React\nresolutions during a pure-data import should keep using it."
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 6,
+					"name": "defaultRef",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 5,
+					"name": "label",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						6,
+						5
 					]
 				}
 			]
 		},
 		{
 			"id": 7,
-			"name": "DesignSystemValidationOptions",
+			"name": "CreateTokenTypographyFieldOptions",
 			"variant": "declaration",
 			"kind": 256,
 			"flags": {},
@@ -609,6 +511,166 @@
 			"children": [
 				{
 					"id": 9,
+					"name": "defaultRef",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 8,
+					"name": "label",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						9,
+						8
+					]
+				}
+			]
+		},
+		{
+			"id": 67,
+			"name": "DarkPrimitiveOverrides",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Dark-mode primitive overrides. v1 only inverts the neutral ramp —\nbrand stays the same across themes (brand color is brand color) and\nspacing / type / radius are intrinsically theme-independent.\n\nSemantics resolve through primitives, so an unset semantic block in\ndark mode is intentional: roles re-bind automatically when neutrals\nflip, keeping stored token refs theme-stable (PRD 0005 §5.2)."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 68,
+					"name": "neutral",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isReadonly": true
+					},
+					"type": {
+						"type": "reference",
+						"target": 56,
+						"name": "ColorRamp",
+						"package": "@anvilkit/plugin-design-system"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						68
+					]
+				}
+			]
+		},
+		{
+			"id": 22,
+			"name": "DesignSystemOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 23,
+					"name": "tokens",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Host overrides — deep-merged onto the bundled "
+							},
+							{
+								"kind": "code",
+								"text": "`DEFAULT_TOKENS`"
+							},
+							{
+								"kind": "text",
+								"text": "."
+							}
+						]
+					},
+					"type": {
+						"type": "reference",
+						"target": 86,
+						"name": "PartialDesignTokens",
+						"package": "@anvilkit/plugin-design-system"
+					}
+				},
+				{
+					"id": 24,
+					"name": "validation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isReadonly": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Toggles for the lifecycle validators landed in Phase B."
+							}
+						]
+					},
+					"type": {
+						"type": "reference",
+						"target": 25,
+						"name": "DesignSystemValidationOptions",
+						"package": "@anvilkit/plugin-design-system"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						23,
+						24
+					]
+				}
+			]
+		},
+		{
+			"id": 25,
+			"name": "DesignSystemValidationOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 27,
 					"name": "contrast",
 					"variant": "declaration",
 					"kind": 1024,
@@ -638,7 +700,7 @@
 					}
 				},
 				{
-					"id": 8,
+					"id": 26,
 					"name": "offToken",
 					"variant": "declaration",
 					"kind": 1024,
@@ -672,8 +734,8 @@
 				{
 					"title": "Properties",
 					"children": [
-						9,
-						8
+						27,
+						26
 					]
 				}
 			]
@@ -743,14 +805,14 @@
 			]
 		},
 		{
-			"id": 78,
+			"id": 74,
 			"name": "EmitTokensCssOptions",
 			"variant": "declaration",
 			"kind": 256,
 			"flags": {},
 			"children": [
 				{
-					"id": 80,
+					"id": 76,
 					"name": "darkSelector",
 					"variant": "declaration",
 					"kind": 1024,
@@ -780,7 +842,7 @@
 					}
 				},
 				{
-					"id": 81,
+					"id": 77,
 					"name": "indent",
 					"variant": "declaration",
 					"kind": 1024,
@@ -810,7 +872,7 @@
 					}
 				},
 				{
-					"id": 79,
+					"id": 75,
 					"name": "selector",
 					"variant": "declaration",
 					"kind": 1024,
@@ -844,9 +906,9 @@
 				{
 					"title": "Properties",
 					"children": [
-						80,
-						81,
-						79
+						76,
+						77,
+						75
 					]
 				}
 			]
@@ -1485,7 +1547,7 @@
 						"typeArguments": [
 							{
 								"type": "reference",
-								"target": 7,
+								"target": 25,
 								"name": "DesignSystemValidationOptions",
 								"package": "@anvilkit/plugin-design-system"
 							}
@@ -2045,8 +2107,50 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 1,
+			"id": 19,
 			"name": "createDesignSystemPlugin",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"signatures": [
+				{
+					"id": 20,
+					"name": "createDesignSystemPlugin",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"parameters": [
+						{
+							"id": 21,
+							"name": "opts",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 22,
+								"name": "DesignSystemOptions",
+								"package": "@anvilkit/plugin-design-system"
+							},
+							"defaultValue": "{}"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "@anvilkit/core",
+							"packagePath": "src/types/plugin.ts",
+							"qualifiedName": "StudioPlugin"
+						},
+						"name": "StudioPlugin",
+						"package": "@anvilkit/core"
+					}
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "createTokenColorField",
 			"variant": "declaration",
 			"kind": 64,
 			"flags": {},
@@ -2114,48 +2218,6 @@
 			},
 			"signatures": [
 				{
-					"id": 2,
-					"name": "createDesignSystemPlugin",
-					"variant": "signature",
-					"kind": 4096,
-					"flags": {},
-					"parameters": [
-						{
-							"id": 3,
-							"name": "opts",
-							"variant": "param",
-							"kind": 32768,
-							"flags": {},
-							"type": {
-								"type": "reference",
-								"target": 4,
-								"name": "DesignSystemOptions",
-								"package": "@anvilkit/plugin-design-system"
-							},
-							"defaultValue": "{}"
-						}
-					],
-					"type": {
-						"type": "reference",
-						"target": {
-							"packageName": "@anvilkit/core",
-							"packagePath": "src/types/plugin.ts",
-							"qualifiedName": "StudioPlugin"
-						},
-						"name": "StudioPlugin",
-						"package": "@anvilkit/core"
-					}
-				}
-			]
-		},
-		{
-			"id": 10,
-			"name": "createTokenColorField",
-			"variant": "declaration",
-			"kind": 64,
-			"flags": {},
-			"signatures": [
-				{
 					"id": 11,
 					"name": "createTokenColorField",
 					"variant": "signature",
@@ -2170,7 +2232,7 @@
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 13,
+								"target": 1,
 								"name": "CreateTokenColorFieldOptions",
 								"package": "@anvilkit/plugin-design-system"
 							},
@@ -2197,28 +2259,90 @@
 			]
 		},
 		{
-			"id": 16,
+			"id": 13,
 			"name": "createTokenSpacingField",
 			"variant": "declaration",
 			"kind": 64,
 			"flags": {},
+			"comment": {
+				"summary": [],
+				"blockTags": [
+					{
+						"tag": "@file",
+						"content": [
+							{
+								"kind": "text",
+								"text": "Public surface for "
+							},
+							{
+								"kind": "code",
+								"text": "`@anvilkit/plugin-design-system`"
+							},
+							{
+								"kind": "text",
+								"text": ".\n\nPhase A scaffold:\n - A4 (this revision): re-exports the React-free token surface\n   ("
+							},
+							{
+								"kind": "code",
+								"text": "`DEFAULT_TOKENS`"
+							},
+							{
+								"kind": "text",
+								"text": ", "
+							},
+							{
+								"kind": "code",
+								"text": "`mergeTokens`"
+							},
+							{
+								"kind": "text",
+								"text": ", type tree).\n - A5: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`emitTokensCss`"
+							},
+							{
+								"kind": "text",
+								"text": " helper.\n - A6: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`createDesignSystemPlugin()`"
+							},
+							{
+								"kind": "text",
+								"text": " factory.\n\nThe dedicated "
+							},
+							{
+								"kind": "code",
+								"text": "`./tokens`"
+							},
+							{
+								"kind": "text",
+								"text": " subpath stays the authoritative React-free\nimport — host build pipelines that want to avoid pulling React\nresolutions during a pure-data import should keep using it."
+							}
+						]
+					}
+				]
+			},
 			"signatures": [
 				{
-					"id": 17,
+					"id": 14,
 					"name": "createTokenSpacingField",
 					"variant": "signature",
 					"kind": 4096,
 					"flags": {},
 					"parameters": [
 						{
-							"id": 18,
+							"id": 15,
 							"name": "opts",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 19,
+								"target": 4,
 								"name": "CreateTokenSpacingFieldOptions",
 								"package": "@anvilkit/plugin-design-system"
 							},
@@ -2245,28 +2369,90 @@
 			]
 		},
 		{
-			"id": 22,
+			"id": 16,
 			"name": "createTokenTypographyField",
 			"variant": "declaration",
 			"kind": 64,
 			"flags": {},
+			"comment": {
+				"summary": [],
+				"blockTags": [
+					{
+						"tag": "@file",
+						"content": [
+							{
+								"kind": "text",
+								"text": "Public surface for "
+							},
+							{
+								"kind": "code",
+								"text": "`@anvilkit/plugin-design-system`"
+							},
+							{
+								"kind": "text",
+								"text": ".\n\nPhase A scaffold:\n - A4 (this revision): re-exports the React-free token surface\n   ("
+							},
+							{
+								"kind": "code",
+								"text": "`DEFAULT_TOKENS`"
+							},
+							{
+								"kind": "text",
+								"text": ", "
+							},
+							{
+								"kind": "code",
+								"text": "`mergeTokens`"
+							},
+							{
+								"kind": "text",
+								"text": ", type tree).\n - A5: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`emitTokensCss`"
+							},
+							{
+								"kind": "text",
+								"text": " helper.\n - A6: adds the "
+							},
+							{
+								"kind": "code",
+								"text": "`createDesignSystemPlugin()`"
+							},
+							{
+								"kind": "text",
+								"text": " factory.\n\nThe dedicated "
+							},
+							{
+								"kind": "code",
+								"text": "`./tokens`"
+							},
+							{
+								"kind": "text",
+								"text": " subpath stays the authoritative React-free\nimport — host build pipelines that want to avoid pulling React\nresolutions during a pure-data import should keep using it."
+							}
+						]
+					}
+				]
+			},
 			"signatures": [
 				{
-					"id": 23,
+					"id": 17,
 					"name": "createTokenTypographyField",
 					"variant": "signature",
 					"kind": 4096,
 					"flags": {},
 					"parameters": [
 						{
-							"id": 24,
+							"id": 18,
 							"name": "opts",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 25,
+								"target": 7,
 								"name": "CreateTokenTypographyFieldOptions",
 								"package": "@anvilkit/plugin-design-system"
 							},
@@ -2293,21 +2479,21 @@
 			]
 		},
 		{
-			"id": 74,
+			"id": 78,
 			"name": "emitTokensCss",
 			"variant": "declaration",
 			"kind": 64,
 			"flags": {},
 			"signatures": [
 				{
-					"id": 75,
+					"id": 79,
 					"name": "emitTokensCss",
 					"variant": "signature",
 					"kind": 4096,
 					"flags": {},
 					"parameters": [
 						{
-							"id": 76,
+							"id": 80,
 							"name": "tokens",
 							"variant": "param",
 							"kind": 32768,
@@ -2320,14 +2506,14 @@
 							}
 						},
 						{
-							"id": 77,
+							"id": 81,
 							"name": "options",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 78,
+								"target": 74,
 								"name": "EmitTokensCssOptions",
 								"package": "@anvilkit/plugin-design-system"
 							},
@@ -2671,7 +2857,7 @@
 						"typeArguments": [
 							{
 								"type": "reference",
-								"target": 7,
+								"target": 25,
 								"name": "DesignSystemValidationOptions",
 								"package": "@anvilkit/plugin-design-system"
 							}
@@ -2688,14 +2874,14 @@
 			"title": "Interfaces",
 			"children": [
 				56,
-				13,
-				19,
-				25,
-				67,
+				1,
 				4,
 				7,
+				67,
+				22,
+				25,
 				70,
-				78,
+				74,
 				91,
 				97,
 				31,
@@ -2723,11 +2909,11 @@
 		{
 			"title": "Functions",
 			"children": [
-				1,
+				19,
 				10,
+				13,
 				16,
-				22,
-				74,
+				78,
 				28,
 				82,
 				36,
@@ -2946,7 +3132,7 @@
 		},
 		{
 			"kind": "code",
-			"text": "`{ fg: \"color\", bg:\n  \"background\" }`"
+			"text": "`{ fg: \"color\", bg:\n\"background\" }`"
 		},
 		{
 			"kind": "text",
@@ -2974,7 +3160,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## Token namespace\n\nCSS variables emitted into the host doc and the Puck iframe:\n\n| Tier      | Variables                                                               |\n| --------- | ----------------------------------------------------------------------- |\n| Primitive | "
+			"text": "\n\n## Token namespace\n\nCSS variables emitted into the host doc and the Puck iframe:\n\n| Tier      | Variables                                                             |\n| --------- | --------------------------------------------------------------------- |\n| Primitive | "
 		},
 		{
 			"kind": "code",
@@ -2990,7 +3176,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "                  |\n|           | "
+			"text": "                |\n|           | "
 		},
 		{
 			"kind": "code",
@@ -2998,7 +3184,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "                                |\n|           | "
+			"text": "                              |\n|           | "
 		},
 		{
 			"kind": "code",
@@ -3006,7 +3192,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "                               |\n|           | "
+			"text": "                             |\n|           | "
 		},
 		{
 			"kind": "code",
@@ -3014,7 +3200,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "                                             |\n| Semantic  | "
+			"text": "                                           |\n| Semantic  | "
 		},
 		{
 			"kind": "code",
@@ -3022,7 +3208,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "   |\n\nSemantics fall back to "
+			"text": " |\n\nSemantics fall back to "
 		},
 		{
 			"kind": "code",
@@ -3142,7 +3328,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "  |\n\n## Subpath exports\n\n| Subpath                                  | Exports                                        |\n| ---------------------------------------- | ---------------------------------------------- |\n| "
+			"text": "  |\n\n## Subpath exports\n\n| Subpath                                  | Exports                                          |\n| ---------------------------------------- | ------------------------------------------------ |\n| "
 		},
 		{
 			"kind": "code",
@@ -3305,48 +3491,48 @@
 		},
 		"1": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/plugin.ts",
-			"qualifiedName": "createDesignSystemPlugin"
+			"packagePath": "src/fields/createTokenColorField.tsx",
+			"qualifiedName": "CreateTokenColorFieldOptions"
 		},
 		"2": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/plugin.ts",
-			"qualifiedName": "createDesignSystemPlugin"
+			"packagePath": "src/fields/createTokenColorField.tsx",
+			"qualifiedName": "CreateTokenColorFieldOptions.label"
 		},
 		"3": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/plugin.ts",
-			"qualifiedName": "opts"
+			"packagePath": "src/fields/createTokenColorField.tsx",
+			"qualifiedName": "CreateTokenColorFieldOptions.defaultRef"
 		},
 		"4": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemOptions"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "CreateTokenSpacingFieldOptions"
 		},
 		"5": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemOptions.tokens"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "CreateTokenSpacingFieldOptions.label"
 		},
 		"6": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemOptions.validation"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "CreateTokenSpacingFieldOptions.defaultRef"
 		},
 		"7": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemValidationOptions"
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
+			"qualifiedName": "CreateTokenTypographyFieldOptions"
 		},
 		"8": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemValidationOptions.offToken"
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
+			"qualifiedName": "CreateTokenTypographyFieldOptions.label"
 		},
 		"9": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/options.ts",
-			"qualifiedName": "DesignSystemValidationOptions.contrast"
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
+			"qualifiedName": "CreateTokenTypographyFieldOptions.defaultRef"
 		},
 		"10": {
 			"packageName": "@anvilkit/plugin-design-system",
@@ -3365,78 +3551,78 @@
 		},
 		"13": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenColorField.tsx",
-			"qualifiedName": "CreateTokenColorFieldOptions"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "createTokenSpacingField"
 		},
 		"14": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenColorField.tsx",
-			"qualifiedName": "CreateTokenColorFieldOptions.label"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "createTokenSpacingField"
 		},
 		"15": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenColorField.tsx",
-			"qualifiedName": "CreateTokenColorFieldOptions.defaultRef"
+			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"qualifiedName": "opts"
 		},
 		"16": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
-			"qualifiedName": "createTokenSpacingField"
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
+			"qualifiedName": "createTokenTypographyField"
 		},
 		"17": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
-			"qualifiedName": "createTokenSpacingField"
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
+			"qualifiedName": "createTokenTypographyField"
 		},
 		"18": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
+			"packagePath": "src/fields/createTokenTypographyField.tsx",
 			"qualifiedName": "opts"
 		},
 		"19": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
-			"qualifiedName": "CreateTokenSpacingFieldOptions"
+			"packagePath": "src/plugin.ts",
+			"qualifiedName": "createDesignSystemPlugin"
 		},
 		"20": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
-			"qualifiedName": "CreateTokenSpacingFieldOptions.label"
+			"packagePath": "src/plugin.ts",
+			"qualifiedName": "createDesignSystemPlugin"
 		},
 		"21": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenSpacingField.tsx",
-			"qualifiedName": "CreateTokenSpacingFieldOptions.defaultRef"
+			"packagePath": "src/plugin.ts",
+			"qualifiedName": "opts"
 		},
 		"22": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "createTokenTypographyField"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemOptions"
 		},
 		"23": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "createTokenTypographyField"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemOptions.tokens"
 		},
 		"24": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "opts"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemOptions.validation"
 		},
 		"25": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "CreateTokenTypographyFieldOptions"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemValidationOptions"
 		},
 		"26": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "CreateTokenTypographyFieldOptions.label"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemValidationOptions.offToken"
 		},
 		"27": {
 			"packageName": "@anvilkit/plugin-design-system",
-			"packagePath": "src/fields/createTokenTypographyField.tsx",
-			"qualifiedName": "CreateTokenTypographyFieldOptions.defaultRef"
+			"packagePath": "src/options.ts",
+			"qualifiedName": "DesignSystemValidationOptions.contrast"
 		},
 		"28": {
 			"packageName": "@anvilkit/plugin-design-system",
@@ -3671,42 +3857,42 @@
 		"74": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "emitTokensCss"
+			"qualifiedName": "EmitTokensCssOptions"
 		},
 		"75": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "emitTokensCss"
+			"qualifiedName": "EmitTokensCssOptions.selector"
 		},
 		"76": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "tokens"
+			"qualifiedName": "EmitTokensCssOptions.darkSelector"
 		},
 		"77": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "EmitTokensCssOptions.indent"
 		},
 		"78": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "EmitTokensCssOptions"
+			"qualifiedName": "emitTokensCss"
 		},
 		"79": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "EmitTokensCssOptions.selector"
+			"qualifiedName": "emitTokensCss"
 		},
 		"80": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "EmitTokensCssOptions.darkSelector"
+			"qualifiedName": "tokens"
 		},
 		"81": {
 			"packageName": "@anvilkit/plugin-design-system",
 			"packagePath": "src/tokens/emit-css.ts",
-			"qualifiedName": "EmitTokensCssOptions.indent"
+			"qualifiedName": "options"
 		},
 		"82": {
 			"packageName": "@anvilkit/plugin-design-system",
