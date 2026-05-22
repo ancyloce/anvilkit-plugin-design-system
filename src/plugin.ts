@@ -33,6 +33,8 @@ import type {
 	StudioPlugin,
 	StudioPluginLifecycleHooks,
 } from "@anvilkit/core/types";
+import { Palette } from "lucide-react";
+import { createElement } from "react";
 
 import config from "../meta/config.json";
 import packageJson from "../package.json";
@@ -59,6 +61,7 @@ export type {
 const META = {
 	...config,
 	version: packageJson.version,
+	icon: createElement(Palette),
 } as const;
 
 const DEFAULT_VALIDATION: Required<DesignSystemValidationOptions> = {

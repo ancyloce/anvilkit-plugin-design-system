@@ -64,7 +64,8 @@
 		}
 	},
 	"dependencies": {
-		"@anvilkit/core": "workspace:*"
+		"@anvilkit/core": "workspace:*",
+		"lucide-react": "^1.16.0"
 	},
 	"devDependencies": {
 		"@anvilkit/biome-config": "workspace:*",
