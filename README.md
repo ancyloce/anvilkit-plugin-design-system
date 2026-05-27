@@ -13,8 +13,9 @@ Token-bound fields, theme switching, and design validation for
 pnpm add @anvilkit/plugin-design-system
 ```
 
-`@anvilkit/core@^0.1.0-alpha`, `@puckeditor/core@^0.21.2`, and
-`react@^18 || ^19` are peer dependencies.
+Peer dependencies: `@puckeditor/core@^0.21.2`, `react@^18.2.0 || ^19.0.0`,
+and `react-dom@^18.2.0 || ^19.0.0`. `@anvilkit/core` ships as a direct
+runtime dependency, so consumers don't manage its version separately.
 
 ## Minimal host
 
@@ -83,18 +84,24 @@ export function App() {
 
 ## Options
 
+`createDesignSystemPlugin(opts?: DesignSystemOptions)` — every field is
+optional, so calling it with no arguments yields the bundled defaults.
+
 ```ts
 interface DesignSystemOptions {
-  /** Deep-merged onto `DEFAULT_TOKENS`. */
   tokens?: PartialDesignTokens;
   validation?: {
-    /** Defaults to `true`. Set false to disable the `onDataChange` hook. */
     offToken?: boolean;
-    /** Defaults to `true`. Set false to disable the `onBeforePublish` gate. */
     contrast?: boolean;
   };
 }
 ```
+
+| Field                  | Type                  | Default | Purpose                                                                        |
+| ---------------------- | --------------------- | ------- | ------------------------------------------------------------------------------ |
+| `tokens`               | `PartialDesignTokens` | none    | Deep-merged onto the bundled `DEFAULT_TOKENS`.                                  |
+| `validation.offToken`  | `boolean`             | `true`  | Set `false` to disable the off-token `onDataChange` warning walker.            |
+| `validation.contrast`  | `boolean`             | `true`  | Set `false` to disable the WCAG-AA contrast `onBeforePublish` gate.            |
 
 ## Token namespace
 
@@ -130,6 +137,28 @@ renders identically to today.
 | `@anvilkit/plugin-design-system`         | Factory, field factories, runtime, tokens, panel |
 | `@anvilkit/plugin-design-system/tokens`  | React-free token tree + helpers                  |
 | `@anvilkit/plugin-design-system/runtime` | `TokenProvider`, `useTokens`, `resolveTokenRef`  |
+
+## Runtime API (`./runtime`)
+
+Token resolution helpers + React context. The field factories, the
+design-system panel, and the validation hooks all consume these; hosts
+building their own token-bound surfaces can import them too.
+
+| Export                       | Signature                                                       | Purpose                                                                                  |
+| ---------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `TokenProvider`              | `(props: TokenProviderProps) => JSX.Element`                    | Publishes the resolved token tree + validation options to context. Mounted automatically by the plugin's `overrides.fields` wrapper. |
+| `useTokens()`                | `() => DesignTokens`                                            | Read the resolved token tree inside a field/render fn.                                   |
+| `useTokenContext()`          | `() => TokenContextValue`                                       | Full context value (tokens + validation options).                                        |
+| `useTokenValidationOptions()`| `() => Required<DesignSystemValidationOptions>`                 | Resolved `{ offToken, contrast }` flags after defaults are applied.                      |
+| `resolveTokenRef(ref, tokens)` | `(ref: string, tokens: DesignTokens) => ResolvedTokenRef`     | Resolve a ref string (`color.brand.500`, `semantic.bg`, `space.4`, …) into its CSS var + metadata. Unknown refs resolve to a `kind: "unknown"` result rather than throwing. |
+| `listTokenRefs(tokens)`      | `(tokens: DesignTokens) => ReadonlyArray<ResolvedTokenRef>`     | Enumerate every legal ref for a token tree — used to populate the field dropdowns and the panel without each surface re-inventing the list. |
+
+Category constants for grouping refs in UI: `TOKEN_CATEGORIES`
+(`["color", "semantic", "space", "text", "radius"]`), `COLOR_CATEGORIES`
+(`["color", "semantic"]`), `SPACING_CATEGORIES` (`["space"]`), and
+`TYPOGRAPHY_CATEGORIES` (`["text"]`). Types `TokenCategory`,
+`TokenRefKind`, `ResolvedTokenRef`, `TokenContextValue`, and
+`TokenProviderProps` are exported alongside.
 
 ## v0.1 limits
 
