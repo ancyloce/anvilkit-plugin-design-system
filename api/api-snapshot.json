@@ -2952,15 +2952,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "\n\n"
-		},
-		{
-			"kind": "code",
-			"text": "`@anvilkit/core@^0.1.0-alpha`"
-		},
-		{
-			"kind": "text",
-			"text": ", "
+			"text": "\n\nPeer dependencies: "
 		},
 		{
 			"kind": "code",
@@ -2968,15 +2960,31 @@
 		},
 		{
 			"kind": "text",
-			"text": ", and\n"
+			"text": ", "
 		},
 		{
 			"kind": "code",
-			"text": "`react@^18 || ^19`"
+			"text": "`react@^18.2.0 || ^19.0.0`"
 		},
 		{
 			"kind": "text",
-			"text": " are peer dependencies.\n\n## Minimal host\n\n"
+			"text": ",\nand "
+		},
+		{
+			"kind": "code",
+			"text": "`react-dom@^18.2.0 || ^19.0.0`"
+		},
+		{
+			"kind": "text",
+			"text": ". "
+		},
+		{
+			"kind": "code",
+			"text": "`@anvilkit/core`"
+		},
+		{
+			"kind": "text",
+			"text": " ships as a direct\nruntime dependency, so consumers don't manage its version separately.\n\n## Minimal host\n\n"
 		},
 		{
 			"kind": "code",
@@ -3156,11 +3164,123 @@
 		},
 		{
 			"kind": "code",
-			"text": "```ts\ninterface DesignSystemOptions {\n  /** Deep-merged onto `DEFAULT_TOKENS`. */\n  tokens?: PartialDesignTokens;\n  validation?: {\n    /** Defaults to `true`. Set false to disable the `onDataChange` hook. */\n    offToken?: boolean;\n    /** Defaults to `true`. Set false to disable the `onBeforePublish` gate. */\n    contrast?: boolean;\n  };\n}\n```"
+			"text": "`createDesignSystemPlugin(opts?: DesignSystemOptions)`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## Token namespace\n\nCSS variables emitted into the host doc and the Puck iframe:\n\n| Tier      | Variables                                                             |\n| --------- | --------------------------------------------------------------------- |\n| Primitive | "
+			"text": " — every field is\noptional, so calling it with no arguments yields the bundled defaults.\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```ts\ninterface DesignSystemOptions {\n  tokens?: PartialDesignTokens;\n  validation?: {\n    offToken?: boolean;\n    contrast?: boolean;\n  };\n}\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n| Field                  | Type                  | Default | Purpose                                                                        |\n| ---------------------- | --------------------- | ------- | ------------------------------------------------------------------------------ |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`tokens`"
+		},
+		{
+			"kind": "text",
+			"text": "               | "
+		},
+		{
+			"kind": "code",
+			"text": "`PartialDesignTokens`"
+		},
+		{
+			"kind": "text",
+			"text": " | none    | Deep-merged onto the bundled "
+		},
+		{
+			"kind": "code",
+			"text": "`DEFAULT_TOKENS`"
+		},
+		{
+			"kind": "text",
+			"text": ".                                  |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`validation.offToken`"
+		},
+		{
+			"kind": "text",
+			"text": "  | "
+		},
+		{
+			"kind": "code",
+			"text": "`boolean`"
+		},
+		{
+			"kind": "text",
+			"text": "             | "
+		},
+		{
+			"kind": "code",
+			"text": "`true`"
+		},
+		{
+			"kind": "text",
+			"text": "  | Set "
+		},
+		{
+			"kind": "code",
+			"text": "`false`"
+		},
+		{
+			"kind": "text",
+			"text": " to disable the off-token "
+		},
+		{
+			"kind": "code",
+			"text": "`onDataChange`"
+		},
+		{
+			"kind": "text",
+			"text": " warning walker.            |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`validation.contrast`"
+		},
+		{
+			"kind": "text",
+			"text": "  | "
+		},
+		{
+			"kind": "code",
+			"text": "`boolean`"
+		},
+		{
+			"kind": "text",
+			"text": "             | "
+		},
+		{
+			"kind": "code",
+			"text": "`true`"
+		},
+		{
+			"kind": "text",
+			"text": "  | Set "
+		},
+		{
+			"kind": "code",
+			"text": "`false`"
+		},
+		{
+			"kind": "text",
+			"text": " to disable the WCAG-AA contrast "
+		},
+		{
+			"kind": "code",
+			"text": "`onBeforePublish`"
+		},
+		{
+			"kind": "text",
+			"text": " gate.            |\n\n## Token namespace\n\nCSS variables emitted into the host doc and the Puck iframe:\n\n| Tier      | Variables                                                             |\n| --------- | --------------------------------------------------------------------- |\n| Primitive | "
 		},
 		{
 			"kind": "code",
@@ -3376,7 +3496,263 @@
 		},
 		{
 			"kind": "text",
-			"text": "  |\n\n## v0.1 limits\n\n- Contrast validation parses hex + "
+			"text": "  |\n\n## Runtime API ("
+		},
+		{
+			"kind": "code",
+			"text": "`./runtime`"
+		},
+		{
+			"kind": "text",
+			"text": ")\n\nToken resolution helpers + React context. The field factories, the\ndesign-system panel, and the validation hooks all consume these; hosts\nbuilding their own token-bound surfaces can import them too.\n\n| Export                       | Signature                                                       | Purpose                                                                                  |\n| ---------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`TokenProvider`"
+		},
+		{
+			"kind": "text",
+			"text": "              | "
+		},
+		{
+			"kind": "code",
+			"text": "`(props: TokenProviderProps) => JSX.Element`"
+		},
+		{
+			"kind": "text",
+			"text": "                    | Publishes the resolved token tree + validation options to context. Mounted automatically by the plugin's "
+		},
+		{
+			"kind": "code",
+			"text": "`overrides.fields`"
+		},
+		{
+			"kind": "text",
+			"text": " wrapper. |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`useTokens()`"
+		},
+		{
+			"kind": "text",
+			"text": "                | "
+		},
+		{
+			"kind": "code",
+			"text": "`() => DesignTokens`"
+		},
+		{
+			"kind": "text",
+			"text": "                                            | Read the resolved token tree inside a field/render fn.                                   |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`useTokenContext()`"
+		},
+		{
+			"kind": "text",
+			"text": "          | "
+		},
+		{
+			"kind": "code",
+			"text": "`() => TokenContextValue`"
+		},
+		{
+			"kind": "text",
+			"text": "                                       | Full context value (tokens + validation options).                                        |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`useTokenValidationOptions()`"
+		},
+		{
+			"kind": "text",
+			"text": "| "
+		},
+		{
+			"kind": "code",
+			"text": "`() => Required<DesignSystemValidationOptions>`"
+		},
+		{
+			"kind": "text",
+			"text": "                 | Resolved "
+		},
+		{
+			"kind": "code",
+			"text": "`{ offToken, contrast }`"
+		},
+		{
+			"kind": "text",
+			"text": " flags after defaults are applied.                      |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`resolveTokenRef(ref, tokens)`"
+		},
+		{
+			"kind": "text",
+			"text": " | "
+		},
+		{
+			"kind": "code",
+			"text": "`(ref: string, tokens: DesignTokens) => ResolvedTokenRef`"
+		},
+		{
+			"kind": "text",
+			"text": "     | Resolve a ref string ("
+		},
+		{
+			"kind": "code",
+			"text": "`color.brand.500`"
+		},
+		{
+			"kind": "text",
+			"text": ", "
+		},
+		{
+			"kind": "code",
+			"text": "`semantic.bg`"
+		},
+		{
+			"kind": "text",
+			"text": ", "
+		},
+		{
+			"kind": "code",
+			"text": "`space.4`"
+		},
+		{
+			"kind": "text",
+			"text": ", …) into its CSS var + metadata. Unknown refs resolve to a "
+		},
+		{
+			"kind": "code",
+			"text": "`kind: \"unknown\"`"
+		},
+		{
+			"kind": "text",
+			"text": " result rather than throwing. |\n| "
+		},
+		{
+			"kind": "code",
+			"text": "`listTokenRefs(tokens)`"
+		},
+		{
+			"kind": "text",
+			"text": "      | "
+		},
+		{
+			"kind": "code",
+			"text": "`(tokens: DesignTokens) => ReadonlyArray<ResolvedTokenRef>`"
+		},
+		{
+			"kind": "text",
+			"text": "     | Enumerate every legal ref for a token tree — used to populate the field dropdowns and the panel without each surface re-inventing the list. |\n\nCategory constants for grouping refs in UI: "
+		},
+		{
+			"kind": "code",
+			"text": "`TOKEN_CATEGORIES`"
+		},
+		{
+			"kind": "text",
+			"text": "\n("
+		},
+		{
+			"kind": "code",
+			"text": "`[\"color\", \"semantic\", \"space\", \"text\", \"radius\"]`"
+		},
+		{
+			"kind": "text",
+			"text": "), "
+		},
+		{
+			"kind": "code",
+			"text": "`COLOR_CATEGORIES`"
+		},
+		{
+			"kind": "text",
+			"text": "\n("
+		},
+		{
+			"kind": "code",
+			"text": "`[\"color\", \"semantic\"]`"
+		},
+		{
+			"kind": "text",
+			"text": "), "
+		},
+		{
+			"kind": "code",
+			"text": "`SPACING_CATEGORIES`"
+		},
+		{
+			"kind": "text",
+			"text": " ("
+		},
+		{
+			"kind": "code",
+			"text": "`[\"space\"]`"
+		},
+		{
+			"kind": "text",
+			"text": "), and\n"
+		},
+		{
+			"kind": "code",
+			"text": "`TYPOGRAPHY_CATEGORIES`"
+		},
+		{
+			"kind": "text",
+			"text": " ("
+		},
+		{
+			"kind": "code",
+			"text": "`[\"text\"]`"
+		},
+		{
+			"kind": "text",
+			"text": "). Types "
+		},
+		{
+			"kind": "code",
+			"text": "`TokenCategory`"
+		},
+		{
+			"kind": "text",
+			"text": ",\n"
+		},
+		{
+			"kind": "code",
+			"text": "`TokenRefKind`"
+		},
+		{
+			"kind": "text",
+			"text": ", "
+		},
+		{
+			"kind": "code",
+			"text": "`ResolvedTokenRef`"
+		},
+		{
+			"kind": "text",
+			"text": ", "
+		},
+		{
+			"kind": "code",
+			"text": "`TokenContextValue`"
+		},
+		{
+			"kind": "text",
+			"text": ", and\n"
+		},
+		{
+			"kind": "code",
+			"text": "`TokenProviderProps`"
+		},
+		{
+			"kind": "text",
+			"text": " are exported alongside.\n\n## v0.1 limits\n\n- Contrast validation parses hex + "
 		},
 		{
 			"kind": "code",
