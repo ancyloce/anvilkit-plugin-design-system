@@ -15,7 +15,7 @@ import {
 	createContext,
 	type PropsWithChildren,
 	type ReactElement,
-	useContext,
+	use,
 } from "react";
 
 import type { DesignSystemValidationOptions } from "../options.js";
@@ -37,12 +37,12 @@ export function TokenProvider({
 	children,
 }: PropsWithChildren<TokenProviderProps>): ReactElement {
 	return (
-		<TokenContext.Provider value={value}>{children}</TokenContext.Provider>
+		<TokenContext value={value}>{children}</TokenContext>
 	);
 }
 
 function readContext(hookName: string): TokenContextValue {
-	const value = useContext(TokenContext);
+	const value = use(TokenContext);
 	if (value === null) {
 		throw new Error(
 			`@anvilkit/plugin-design-system: ${hookName}() was called outside <TokenProvider>. ` +
