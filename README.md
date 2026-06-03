@@ -97,11 +97,48 @@ interface DesignSystemOptions {
 }
 ```
 
-| Field                  | Type                  | Default | Purpose                                                                        |
-| ---------------------- | --------------------- | ------- | ------------------------------------------------------------------------------ |
-| `tokens`               | `PartialDesignTokens` | none    | Deep-merged onto the bundled `DEFAULT_TOKENS`.                                  |
-| `validation.offToken`  | `boolean`             | `true`  | Set `false` to disable the off-token `onDataChange` warning walker.            |
-| `validation.contrast`  | `boolean`             | `true`  | Set `false` to disable the WCAG-AA contrast `onBeforePublish` gate.            |
+| Field                 | Type                  | Default | Purpose                                                             |
+| --------------------- | --------------------- | ------- | ------------------------------------------------------------------- |
+| `tokens`              | `PartialDesignTokens` | none    | Deep-merged onto the bundled `DEFAULT_TOKENS`.                      |
+| `validation.offToken` | `boolean`             | `true`  | Set `false` to disable the off-token `onDataChange` warning walker. |
+| `validation.contrast` | `boolean`             | `true`  | Set `false` to disable the WCAG-AA contrast `onBeforePublish` gate. |
+
+## Usage examples
+
+### Zero-config defaults
+
+```ts
+import { createDesignSystemPlugin } from "@anvilkit/plugin-design-system";
+
+// No arguments — bundled DEFAULT_TOKENS, both validators on.
+const designSystem = createDesignSystemPlugin();
+```
+
+### Custom brand tokens with validators disabled
+
+```ts
+import { createDesignSystemPlugin } from "@anvilkit/plugin-design-system";
+
+const designSystem = createDesignSystemPlugin({
+  tokens: { primitives: { brand: { 500: "#1f6feb" } } },
+  // Silence the off-token warning + skip the WCAG-AA publish gate.
+  validation: { offToken: false, contrast: false },
+});
+```
+
+### Reading resolved tokens at runtime
+
+The field factories and the design-system panel consume the runtime helpers; a
+host building its own token-bound surface can too.
+
+```tsx
+import { useTokens } from "@anvilkit/plugin-design-system/runtime";
+
+function PrimitiveGroupCount() {
+  const tokens = useTokens();
+  return <span>{Object.keys(tokens.primitives).length} primitive groups</span>;
+}
+```
 
 ## Token namespace
 
@@ -144,14 +181,14 @@ Token resolution helpers + React context. The field factories, the
 design-system panel, and the validation hooks all consume these; hosts
 building their own token-bound surfaces can import them too.
 
-| Export                       | Signature                                                       | Purpose                                                                                  |
-| ---------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `TokenProvider`              | `(props: TokenProviderProps) => JSX.Element`                    | Publishes the resolved token tree + validation options to context. Mounted automatically by the plugin's `overrides.fields` wrapper. |
-| `useTokens()`                | `() => DesignTokens`                                            | Read the resolved token tree inside a field/render fn.                                   |
-| `useTokenContext()`          | `() => TokenContextValue`                                       | Full context value (tokens + validation options).                                        |
-| `useTokenValidationOptions()`| `() => Required<DesignSystemValidationOptions>`                 | Resolved `{ offToken, contrast }` flags after defaults are applied.                      |
-| `resolveTokenRef(ref, tokens)` | `(ref: string, tokens: DesignTokens) => ResolvedTokenRef`     | Resolve a ref string (`color.brand.500`, `semantic.bg`, `space.4`, …) into its CSS var + metadata. Unknown refs resolve to a `kind: "unknown"` result rather than throwing. |
-| `listTokenRefs(tokens)`      | `(tokens: DesignTokens) => ReadonlyArray<ResolvedTokenRef>`     | Enumerate every legal ref for a token tree — used to populate the field dropdowns and the panel without each surface re-inventing the list. |
+| Export                         | Signature                                                   | Purpose                                                                                                                                                                     |
+| ------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TokenProvider`                | `(props: TokenProviderProps) => JSX.Element`                | Publishes the resolved token tree + validation options to context. Mounted automatically by the plugin's `overrides.fields` wrapper.                                        |
+| `useTokens()`                  | `() => DesignTokens`                                        | Read the resolved token tree inside a field/render fn.                                                                                                                      |
+| `useTokenContext()`            | `() => TokenContextValue`                                   | Full context value (tokens + validation options).                                                                                                                           |
+| `useTokenValidationOptions()`  | `() => Required<DesignSystemValidationOptions>`             | Resolved `{ offToken, contrast }` flags after defaults are applied.                                                                                                         |
+| `resolveTokenRef(ref, tokens)` | `(ref: string, tokens: DesignTokens) => ResolvedTokenRef`   | Resolve a ref string (`color.brand.500`, `semantic.bg`, `space.4`, …) into its CSS var + metadata. Unknown refs resolve to a `kind: "unknown"` result rather than throwing. |
+| `listTokenRefs(tokens)`        | `(tokens: DesignTokens) => ReadonlyArray<ResolvedTokenRef>` | Enumerate every legal ref for a token tree — used to populate the field dropdowns and the panel without each surface re-inventing the list.                                 |
 
 Category constants for grouping refs in UI: `TOKEN_CATEGORIES`
 (`["color", "semantic", "space", "text", "radius"]`), `COLOR_CATEGORIES`
