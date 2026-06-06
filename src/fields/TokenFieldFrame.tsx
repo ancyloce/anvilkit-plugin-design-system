@@ -14,6 +14,7 @@
  * rather than JS state.
  */
 
+import { useMsg } from "@anvilkit/core/i18n";
 import type { ReactElement } from "react";
 
 import { listTokenRefs, resolveTokenRef } from "../runtime/resolve-ref.js";
@@ -170,6 +171,7 @@ export function TokenFieldFrame({
 	id,
 	name,
 }: TokenFieldFrameProps): ReactElement {
+	const msg = useMsg();
 	const tokens = useTokens();
 	const allowedKinds = CATEGORY_KINDS[category];
 	const refs = listTokenRefs(tokens).filter((r) =>
@@ -196,7 +198,7 @@ export function TokenFieldFrame({
 					data-testid={`token-${category}-select`}
 				>
 					{value === "" || resolved.kind === "unknown" ? (
-						<option value="">— select a token —</option>
+						<option value="">{msg("designSystem.field.selectToken")}</option>
 					) : null}
 					{refs.map((r) => (
 						<option key={r.ref} value={r.ref}>

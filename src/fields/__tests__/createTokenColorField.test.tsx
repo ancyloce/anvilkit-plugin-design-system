@@ -2,9 +2,11 @@
 
 import "@testing-library/jest-dom/vitest";
 
+import { EditorI18nProvider } from "@anvilkit/core/i18n";
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
+import { DESIGN_SYSTEM_ENTRY } from "../../i18n/entry.js";
 import { TokenProvider } from "../../runtime/token-context.js";
 import { DEFAULT_TOKENS } from "../../tokens/default-tokens.js";
 import { createTokenColorField } from "../createTokenColorField.js";
@@ -29,14 +31,16 @@ function renderField(
 	return {
 		onChange,
 		...render(
-			<TokenProvider
-				value={{
-					tokens: DEFAULT_TOKENS,
-					validation: { offToken: true, contrast: true },
-				}}
-			>
-				{element}
-			</TokenProvider>,
+			<EditorI18nProvider entries={[DESIGN_SYSTEM_ENTRY]}>
+				<TokenProvider
+					value={{
+						tokens: DEFAULT_TOKENS,
+						validation: { offToken: true, contrast: true },
+					}}
+				>
+					{element}
+				</TokenProvider>
+			</EditorI18nProvider>,
 		),
 	};
 }

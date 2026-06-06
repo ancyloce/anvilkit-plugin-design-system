@@ -1,0 +1,18 @@
+{
+	"designSystem.tab.tokens": "Tokens",
+	"designSystem.tab.theme": "Theme",
+	"designSystem.panel.aria": "Design system",
+	"designSystem.group.colorPrimitive": "Color · primitive",
+	"designSystem.group.colorSemantic": "Color · semantic",
+	"designSystem.group.spacing": "Spacing",
+	"designSystem.group.typography": "Typography",
+	"designSystem.group.radius": "Radius",
+	"designSystem.token.copyAria": "Copy {ref} to clipboard",
+	"designSystem.token.copied": "copied",
+	"designSystem.mode.light": "Light",
+	"designSystem.mode.dark": "Dark",
+	"designSystem.mode.system": "System",
+	"designSystem.theme.label": "Theme",
+	"designSystem.theme.aria": "Studio theme",
+	"designSystem.field.selectToken": "— select a token —"
+}

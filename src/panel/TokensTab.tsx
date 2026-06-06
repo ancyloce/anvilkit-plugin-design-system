@@ -8,6 +8,7 @@
  * vars so theme switches flow through CSS rather than JS state.
  */
 
+import { useMsg } from "@anvilkit/core/i18n";
 import type { CSSProperties, ReactElement } from "react";
 import { useCallback, useMemo, useState } from "react";
 
@@ -16,20 +17,20 @@ import type { ResolvedTokenRef, TokenRefKind } from "../runtime/resolve-ref.js";
 import { useTokens } from "../runtime/token-context.js";
 
 interface GroupedRefs {
-	readonly title: string;
+	readonly titleKey: string;
 	readonly kind: TokenRefKind;
 	readonly refs: ReadonlyArray<ResolvedTokenRef>;
 }
 
 const GROUP_ORDER: ReadonlyArray<{
-	readonly title: string;
+	readonly titleKey: string;
 	readonly kind: TokenRefKind;
 }> = [
-	{ title: "Color · primitive", kind: "color" },
-	{ title: "Color · semantic", kind: "semantic" },
-	{ title: "Spacing", kind: "space" },
-	{ title: "Typography", kind: "text" },
-	{ title: "Radius", kind: "radius" },
+	{ titleKey: "designSystem.group.colorPrimitive", kind: "color" },
+	{ titleKey: "designSystem.group.colorSemantic", kind: "semantic" },
+	{ titleKey: "designSystem.group.spacing", kind: "space" },
+	{ titleKey: "designSystem.group.typography", kind: "text" },
+	{ titleKey: "designSystem.group.radius", kind: "radius" },
 ];
 
 const containerStyle: CSSProperties = {
@@ -133,6 +134,7 @@ function renderSwatch(kind: TokenRefKind, cssVar?: string): ReactElement {
 }
 
 export function TokensTab(): ReactElement {
+	const msg = useMsg();
 	const tokens = useTokens();
 	const [copied, setCopied] = useState<string | null>(null);
 
@@ -158,8 +160,8 @@ export function TokensTab(): ReactElement {
 	return (
 		<div style={containerStyle} data-testid="design-system-panel-tokens">
 			{groups.map((group) => (
-				<section key={group.title} style={groupStyle}>
-					<div style={groupTitleStyle}>{group.title}</div>
+				<section key={group.kind} style={groupStyle}>
+					<div style={groupTitleStyle}>{msg(group.titleKey)}</div>
 					{group.refs.map((r) => (
 						<button
 							key={r.ref}
@@ -167,7 +169,10 @@ export function TokensTab(): ReactElement {
 							style={rowStyle}
 							onClick={() => onCopy(r.ref)}
 							data-testid={`token-row-${r.ref}`}
-							aria-label={`Copy ${r.ref} to clipboard`}
+							aria-label={msg("designSystem.token.copyAria").replace(
+								"{ref}",
+								r.ref,
+							)}
 						>
 							{renderSwatch(r.kind, r.cssVar)}
 							<span style={{ flex: 1 }}>{r.ref}</span>
@@ -180,7 +185,7 @@ export function TokensTab(): ReactElement {
 											"var(--ak-ds-fg-muted, var(--ak-studio-muted-fg))",
 									}}
 								>
-									copied
+									{msg("designSystem.token.copied")}
 								</span>
 							) : null}
 						</button>

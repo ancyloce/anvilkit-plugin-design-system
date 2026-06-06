@@ -38,6 +38,7 @@ import { createElement } from "react";
 
 import config from "../meta/config.json";
 import packageJson from "../package.json";
+import { DESIGN_SYSTEM_ENTRY } from "./i18n/entry.js";
 import type {
 	DesignSystemOptions,
 	DesignSystemPluginInternals,
@@ -88,6 +89,15 @@ export function createDesignSystemPlugin(
 	} = {
 		meta: META,
 		register(ctx) {
+			// Contribute the `designSystem` message catalog so the panel +
+			// token fields resolve `useMsg("designSystem.*")` in-chrome. The
+			// live <Studio> ctx always provides `registerMessages`; the
+			// `typeof` guard mirrors the panel registration below so the
+			// hand-written minimal test contexts in this package still work.
+			if (typeof ctx.registerMessages === "function") {
+				ctx.registerMessages(DESIGN_SYSTEM_ENTRY);
+			}
+
 			// Register the rail panel via the Phase-A core seam. Capture
 			// the unregister handle for `onDestroy` cleanup so a remount
 			// (or a host removing the plugin from the array) does not

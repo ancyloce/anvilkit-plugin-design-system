@@ -15,6 +15,7 @@
  * panel's hooks (`useTokens`) have context.
  */
 
+import { useMsg } from "@anvilkit/core/i18n";
 import type { CSSProperties, ReactElement } from "react";
 import { useState } from "react";
 
@@ -23,9 +24,9 @@ import { ThemeTab } from "./ThemeTab.js";
 
 type TabKey = "tokens" | "theme";
 
-const TABS: ReadonlyArray<{ readonly key: TabKey; readonly label: string }> = [
-	{ key: "tokens", label: "Tokens" },
-	{ key: "theme", label: "Theme" },
+const TABS: ReadonlyArray<{ readonly key: TabKey; readonly labelKey: string }> = [
+	{ key: "tokens", labelKey: "designSystem.tab.tokens" },
+	{ key: "theme", labelKey: "designSystem.tab.theme" },
 ];
 
 const containerStyle: CSSProperties = {
@@ -71,11 +72,16 @@ const panelBodyStyle: CSSProperties = {
 };
 
 export function DesignSystemPanel(): ReactElement {
+	const msg = useMsg();
 	const [tab, setTab] = useState<TabKey>("tokens");
 	return (
 		<div style={containerStyle} data-testid="design-system-panel">
-			<div role="tablist" aria-label="Design system" style={tabListStyle}>
-				{TABS.map(({ key, label }) => (
+			<div
+				role="tablist"
+				aria-label={msg("designSystem.panel.aria")}
+				style={tabListStyle}
+			>
+				{TABS.map(({ key, labelKey }) => (
 					<button
 						key={key}
 						type="button"
@@ -86,7 +92,7 @@ export function DesignSystemPanel(): ReactElement {
 						onClick={() => setTab(key)}
 						data-testid={`design-system-tab-${key}`}
 					>
-						{label}
+						{msg(labelKey)}
 					</button>
 				))}
 			</div>

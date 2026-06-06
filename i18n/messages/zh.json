@@ -1,0 +1,18 @@
+{
+	"designSystem.tab.tokens": "令牌",
+	"designSystem.tab.theme": "主题",
+	"designSystem.panel.aria": "设计系统",
+	"designSystem.group.colorPrimitive": "颜色 · 基础",
+	"designSystem.group.colorSemantic": "颜色 · 语义",
+	"designSystem.group.spacing": "间距",
+	"designSystem.group.typography": "排版",
+	"designSystem.group.radius": "圆角",
+	"designSystem.token.copyAria": "复制 {ref} 到剪贴板",
+	"designSystem.token.copied": "已复制",
+	"designSystem.mode.light": "浅色",
+	"designSystem.mode.dark": "深色",
+	"designSystem.mode.system": "跟随系统",
+	"designSystem.theme.label": "主题",
+	"designSystem.theme.aria": "工作区主题",
+	"designSystem.field.selectToken": "— 选择令牌 —"
+}

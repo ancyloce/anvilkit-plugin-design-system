@@ -8,16 +8,19 @@
  */
 
 import { useThemeStore } from "@anvilkit/core";
+import { useMsg } from "@anvilkit/core/i18n";
 import type { CSSProperties, ReactElement } from "react";
 
 type ThemeMode = "light" | "dark" | "system";
 
-const MODES: ReadonlyArray<{ readonly value: ThemeMode; readonly label: string }> =
-	[
-		{ value: "light", label: "Light" },
-		{ value: "dark", label: "Dark" },
-		{ value: "system", label: "System" },
-	];
+const MODES: ReadonlyArray<{
+	readonly value: ThemeMode;
+	readonly labelKey: string;
+}> = [
+	{ value: "light", labelKey: "designSystem.mode.light" },
+	{ value: "dark", labelKey: "designSystem.mode.dark" },
+	{ value: "system", labelKey: "designSystem.mode.system" },
+];
 
 const containerStyle: CSSProperties = {
 	display: "flex",
@@ -61,14 +64,19 @@ function buttonStyle(active: boolean): CSSProperties {
 }
 
 export function ThemeTab(): ReactElement {
+	const msg = useMsg();
 	const mode = useThemeStore((s) => s.mode) as ThemeMode;
 	const setMode = useThemeStore((s) => s.setMode) as (next: ThemeMode) => void;
 
 	return (
 		<div style={containerStyle} data-testid="design-system-panel-theme">
-			<div style={labelStyle}>Theme</div>
-			<div style={rowStyle} role="radiogroup" aria-label="Studio theme">
-				{MODES.map(({ value, label }) => (
+			<div style={labelStyle}>{msg("designSystem.theme.label")}</div>
+			<div
+				style={rowStyle}
+				role="radiogroup"
+				aria-label={msg("designSystem.theme.aria")}
+			>
+				{MODES.map(({ value, labelKey }) => (
 					<button
 						key={value}
 						type="button"
@@ -78,7 +86,7 @@ export function ThemeTab(): ReactElement {
 						onClick={() => setMode(value)}
 						data-testid={`theme-mode-${value}`}
 					>
-						{label}
+						{msg(labelKey)}
 					</button>
 				))}
 			</div>
