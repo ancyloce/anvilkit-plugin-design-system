@@ -1,0 +1,18 @@
+{
+	"designSystem.tab.tokens": "토큰",
+	"designSystem.tab.theme": "테마",
+	"designSystem.panel.aria": "디자인 시스템",
+	"designSystem.group.colorPrimitive": "색상 · 프리미티브",
+	"designSystem.group.colorSemantic": "색상 · 시맨틱",
+	"designSystem.group.spacing": "간격",
+	"designSystem.group.typography": "타이포그래피",
+	"designSystem.group.radius": "모서리 반경",
+	"designSystem.token.copyAria": "{ref}을(를) 클립보드에 복사",
+	"designSystem.token.copied": "복사됨",
+	"designSystem.mode.light": "라이트",
+	"designSystem.mode.dark": "다크",
+	"designSystem.mode.system": "시스템",
+	"designSystem.theme.label": "테마",
+	"designSystem.theme.aria": "스튜디오 테마",
+	"designSystem.field.selectToken": "— 토큰 선택 —"
+}

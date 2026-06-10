@@ -1,0 +1,18 @@
+{
+	"designSystem.tab.tokens": "トークン",
+	"designSystem.tab.theme": "テーマ",
+	"designSystem.panel.aria": "デザインシステム",
+	"designSystem.group.colorPrimitive": "色 · プリミティブ",
+	"designSystem.group.colorSemantic": "色 · セマンティック",
+	"designSystem.group.spacing": "余白",
+	"designSystem.group.typography": "タイポグラフィ",
+	"designSystem.group.radius": "角丸",
+	"designSystem.token.copyAria": "{ref} をクリップボードにコピー",
+	"designSystem.token.copied": "コピーしました",
+	"designSystem.mode.light": "ライト",
+	"designSystem.mode.dark": "ダーク",
+	"designSystem.mode.system": "システム",
+	"designSystem.theme.label": "テーマ",
+	"designSystem.theme.aria": "スタジオテーマ",
+	"designSystem.field.selectToken": "— トークンを選択 —"
+}
