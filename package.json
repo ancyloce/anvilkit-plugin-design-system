@@ -72,7 +72,7 @@
 		"@anvilkit/biome-config": "workspace:*",
 		"@anvilkit/typescript-config": "workspace:*",
 		"@anvilkit/vitest-config": "workspace:*",
-		"@biomejs/biome": "2.5.1",
+		"@biomejs/biome": "2.5.3",
 		"@puckeditor/core": "^0.22.0",
 		"@rsbuild/plugin-react": "^2.1.0",
 		"@rslib/core": "^0.23.0",
