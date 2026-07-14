@@ -41,7 +41,7 @@ export function TokenProvider({
 	);
 }
 
-function readContext(hookName: string): TokenContextValue {
+function useRequiredTokenContext(hookName: string): TokenContextValue {
 	const value = use(TokenContext);
 	if (value === null) {
 		throw new Error(
@@ -55,15 +55,15 @@ function readContext(hookName: string): TokenContextValue {
 
 /** Resolved token tree from the nearest `<TokenProvider>`. */
 export function useTokens(): DesignTokens {
-	return readContext("useTokens").tokens;
+	return useRequiredTokenContext("useTokens").tokens;
 }
 
 /** Validation toggles (mirrors `DesignSystemOptions.validation`). */
 export function useTokenValidationOptions(): Required<DesignSystemValidationOptions> {
-	return readContext("useTokenValidationOptions").validation;
+	return useRequiredTokenContext("useTokenValidationOptions").validation;
 }
 
 /** Full context value — primarily useful for tests and the panel UI. */
 export function useTokenContext(): TokenContextValue {
-	return readContext("useTokenContext");
+	return useRequiredTokenContext("useTokenContext");
 }

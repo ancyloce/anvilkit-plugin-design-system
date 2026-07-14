@@ -180,7 +180,7 @@ export function TokensTab(): ReactElement {
 								<span
 									aria-live="polite"
 									style={{
-										fontSize: "10px",
+										fontSize: "12px",
 										color:
 											"var(--ak-ds-fg-muted, var(--ak-studio-muted-fg))",
 									}}
