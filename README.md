@@ -13,7 +13,7 @@ Token-bound fields, theme switching, and design validation for
 pnpm add @anvilkit/plugin-design-system
 ```
 
-Peer dependencies: `@puckeditor/core@^0.22.4`, `react@>=19.0.0`,
+Peer dependencies: `@puckeditor/core@^0.23.0`, `react@>=19.0.0`,
 and `react-dom@>=19.0.0`. `@anvilkit/core` ships as a direct
 runtime dependency, so consumers don't manage its version separately.
 
