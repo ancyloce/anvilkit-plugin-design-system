@@ -66,17 +66,17 @@
 	},
 	"dependencies": {
 		"@anvilkit/core": "workspace:*",
-		"lucide-react": "^1.30.0"
+		"lucide-react": "^1.31.0"
 	},
 	"devDependencies": {
 		"@anvilkit/biome-config": "workspace:*",
 		"@anvilkit/typescript-config": "workspace:*",
 		"@anvilkit/vitest-config": "workspace:*",
-		"@biomejs/biome": "^2.5.7",
+		"@biomejs/biome": "^2.5.8",
 		"@puckeditor/core": "^0.23.0",
 		"@rsbuild/plugin-react": "^2.1.0",
 		"@rslib/core": "^0.23.2",
-		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/jest-dom": "^7.0.1",
 		"@testing-library/react": "^16.3.2",
 		"@types/node": "^26.2.0",
 		"@types/react": "^19.2.18",
